@@ -1,0 +1,33 @@
+Lib/nids version 0.04
+=====================
+
+
+This module embeds the libnids C library written by Rafal Wojtczuk <nergal@avet.com.pl?.
+libnids is designed to do all lowlevel network code required by a network intrusion detection
+system (whichis what NIDS stands for). This module uses libnids to allow you to read
+the reassembled tcp stream without any duplicates or incorrect order. That is, like a normal
+host would have seen the stream.
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  libnids
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2004 Arthur Bergman
+Updated 2010 David Cannings
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
+

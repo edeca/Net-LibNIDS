@@ -1,0 +1,30 @@
+diff -ur libnids-1.18-orig/src/libnids.c libnids-1.18/src/libnids.c
+--- libnids-1.18-orig/src/libnids.c	Fri Oct 10 18:41:32 2003
++++ libnids-1.18/src/libnids.c	Sun Jun 13 20:13:16 2004
+@@ -48,6 +48,7 @@
+ static pcap_t *desc = 0;
+ 
+ char nids_errbuf[PCAP_ERRBUF_SIZE];
++struct pcap_pkthdr *last_pcap_header = 0;
+ 
+ char *nids_warnings[] = {
+     "Murphy - you never should see this message !",
+@@ -181,6 +182,7 @@
+ #ifdef DLT_IEEE802_11
+     unsigned short fc;
+ #endif
++    last_pcap_header = hdr;
+     switch (linktype) {
+     case DLT_EN10MB:
+ 	if (hdr->caplen < 14)
+diff -ur libnids-1.18-orig/src/nids.h libnids-1.18/src/nids.h
+--- libnids-1.18-orig/src/nids.h	Sat Sep 20 22:40:51 2003
++++ libnids-1.18/src/nids.h	Sun Jun 13 20:13:09 2004
+@@ -124,5 +124,6 @@
+ extern struct nids_prm nids_params;
+ extern char *nids_warnings[];
+ extern char nids_errbuf[];
+-
++extern struct pcap_pkthdr *last_pcap_header;
++#define NIDS_SAVES_LAST_PCAP_HDR
+ #endif /* _NIDS_NIDS_H */

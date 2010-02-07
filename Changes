@@ -1,0 +1,15 @@
+Revision history for Perl extension Lib::nids.
+
+0.04  Sun Feb 07 14:55:00 2010
+	- Fix the broken attempt to use Devel::CheckLib (EDECA)
+
+0.03  Sat Feb 06 13:55:00 2010
+        - Small update to use Devel::CheckLib so that I can monitor cpan testers better (EDECA)
+
+0.02  Sat Feb 06 12:55:00 2010
+        - Updated by David Cannings (EDECA) with fix for cpan bug #52879
+
+0.01  Sat Jun 12 12:13:38 2004
+	- original version; created by h2xs 1.22 with options
+		-a -a --name=Lib::nids --use-new-tests --skip-exporter --skip-autoloader /Users/sky/Documents/Projects/perlnids/include/nids.h
+
