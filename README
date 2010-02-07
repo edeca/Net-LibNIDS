@@ -1,6 +1,5 @@
-Lib/nids version 0.04
-=====================
-
+Net::LibNIDS version 0.1
+========================
 
 This module embeds the libnids C library written by Rafal Wojtczuk <nergal@avet.com.pl?.
 libnids is designed to do all lowlevel network code required by a network intrusion detection
@@ -30,4 +29,3 @@ Updated 2010 David Cannings
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
-

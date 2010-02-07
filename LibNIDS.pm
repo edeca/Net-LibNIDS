@@ -7,7 +7,7 @@ use Carp;
 
 our @ISA = qw();
 
-our $VERSION = '0.04';
+our $VERSION = '0.1';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -85,7 +85,7 @@ Net::LibNIDS - Perl extension for reassembly of TCP/IP streams using the libnids
 
 =head1 DESCRIPTION
 
-The workflow of using libnids is to set all paremeters, then call init, set up a callback then run.
+The workflow of using libnids is to set all parameters, then call init, set up a callback then run.
 
 =head1 Net::LibNIDS::init( )
 
@@ -149,15 +149,15 @@ Returns the port of the server and client. Client is the initiator of the connec
 
 =head2 $tcp_stream->lastpacket_sec
 
-Returns the seconds from epoch that this packet was recorded. Only available if libnids was compiled with the patch that comes with this package.
+Returns the seconds from epoch that this packet was recorded. Only available with libnids version >= 1.19.
 
 =head2 $tcp_stream->lastpacket_usec
 
-Returns the microsecond fraction that this packet was recorded. Used together with $tcp_stream->lastpacket to get the most correct timestamp possible. Only available if libnids was compiled with the patch that comes with this package.
+Returns the microsecond fraction that this packet was recorded. Used together with $tcp_stream->lastpacket to get the most correct timestamp possible. Only available with libnids version >= 1.19.
 
 =head2 $tcp_stream->server $tcp_stream->client
 
-Returns a Net::LibNIDS::tcp_stream::half object, corresponding for the client hald and the server half.
+Returns a Net::LibNIDS::tcp_stream::half object, corresponding to the client half and the server half.
 
 =head1 Net::LibNIDS::tcp_stream::half
 
@@ -220,6 +220,8 @@ Sets the filename to read packets from (tcpdump file), if this is set, then libn
 =head2 pcap_filter (Net::LibNIDS::param::set_pcap_filter(pcap_filter) Net::LibNIDS::param::get_pcap_filter)
 
 The pcap filter to apply on the packets. Note however that if you have fragmented packets you cannot use the pcap filter on for example ports, since fragmented ip packets might not contain enough tcp information to determine port.
+
+See the note in the libnids manpage for a workaround, or check the code in example.pl.
 
 =head2 n_tcp_streams (Net::LibNIDS::param::set_n_tcp_streams(numbers) Net::LibNIDS::param::get_n_tcp_streams)
 
@@ -307,6 +309,10 @@ Not currently supported by this extension
 
 Not currently supported by this extension
 
+=head2 Note
+
+Previous versions of Net::LibNIDS included a patch against libnids in order to obtain packet timings.  This is no longer necessary as long as libnids-1.19 or greater is used.
+
 =head1 SEE ALSO
 
 libnids man page
@@ -317,6 +323,7 @@ example.pl and performance.pl
 =head1 AUTHOR
 
 Arthur Bergman, E<lt>sky@nanisky.comE<gt>
+Modified for libnids >= 1.19 by David Cannings, E<lt>david@edeca.netE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -69,6 +69,10 @@ char* state2string (IV state) {
     return "NIDS_CLOSE";
   case NIDS_RESET:
     return "NIDS_RESET";
+  case NIDS_TIMED_OUT:
+    return "NIDS_TIMED_OUT";
+  case NIDS_EXITING:
+    return "NIDS_EXITING";
   default:
     return "UNKNOWN";
   }     
@@ -80,12 +84,13 @@ char* state2string (IV state) {
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::tcp_stream
 
-#ifdef NIDS_SAVES_LAST_PCAP_HDR
+# Export of last_pcap_header was added in libnids-1.19
+#if NIDS_MINOR>=19
 IV
 lastpacket_sec(obj)
 	  SV* obj
 	CODE:
-	  RETVAL = last_pcap_header->ts.tv_sec;
+	  RETVAL = nids_last_pcap_header->ts.tv_sec;
 	OUTPUT:
 	  RETVAL
 
@@ -93,7 +98,7 @@ IV
 lastpacket_usec(obj)
 	  SV* obj
 	CODE:
-	  RETVAL = last_pcap_header->ts.tv_usec;
+	  RETVAL = nids_last_pcap_header->ts.tv_usec;
 	OUTPUT:
 	  RETVAL
 
@@ -103,13 +108,13 @@ void
 lastpacket_sec(obj)
 	  SV* obj
 	CODE:
-	  croak("You need a patched libnids that saves the last pcap header");
+	  croak("You need libnids >1.19 in order to use this function");
 
 void
 lastpacket_usec(obj)
 	  SV* obj
 	CODE:
-	  croak("You need a patched libnids that saves the last pcap header");
+	  croak("You need libnids >1.19 in order to use this function");
 
 #endif
 
@@ -285,11 +290,8 @@ void
 tcp_callback(cb);
     SV* cb
   CODE:
-    if(!our_tcp_callback) {
       our_tcp_callback = SvRV(cb);
       nids_register_tcp(tcp_callback_f);
-    }
-
 
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::param
@@ -467,13 +469,3 @@ set_one_loop_less(one_loop_less)
 	    IV one_loop_less
 	  CODE:
 	    nids_params.one_loop_less = one_loop_less;
-
-
-
-
-
-
-
-
-     
-
