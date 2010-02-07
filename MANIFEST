@@ -8,7 +8,6 @@ const-xs.inc
 example.pl
 fallback/const-c.inc
 fallback/const-xs.inc
-libnids.patch
 LibNIDS.pm
 LibNIDS.xs
 ppport.h

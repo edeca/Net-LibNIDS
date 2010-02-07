@@ -4,8 +4,8 @@ use ExtUtils::MakeMaker;
 use Devel::CheckLib;
 
 # Check for the dependencies we need to build
-check_lib_or_exit( lib => 'nids', header => 'nids.h' );
 check_lib_or_exit( lib => 'pcap', header => 'pcap.h' );
+check_lib_or_exit( lib => 'nids', header => 'nids.h' );
 
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
