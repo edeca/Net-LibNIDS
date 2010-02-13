@@ -19,7 +19,7 @@ WriteMakefile(
 #    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
 #      (ABSTRACT_FROM => 'LibNIDS.pm', # retrieve abstract from module
 #       AUTHOR     => 'Arthur Bergman <abergman@fotango.com>') : ()),
-    'LIBS'		=> ['-lnids -lpcap -lgthread-2.0'], # e.g., '-lm'
+    'LIBS'		=> ['-lnids -lpcap -lgthread-2.0 -lnet'], # e.g., '-lm'
     'DEFINE'		=> '', # e.g., '-DHAVE_SOMETHING'
     'INC'		=> '-I.', # e.g., '-I. -I/usr/include/other'
 	# Un-comment this if you add C files to link with later:
