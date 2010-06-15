@@ -11,7 +11,8 @@ check_lib_or_exit( lib => 'nids', header => 'nids.h' );
 # the contents of the Makefile that is written.
 #
 # TODO: If libnids is linked against gthread-2.0, we need to link against
-#       it here.  If not, we shouldn't.  This needs resolving.
+#       it here.  If not, we shouldn't.  The next Devel::CheckLib will
+#       have check_lib to accomplish this
 WriteMakefile(
     'NAME'		=> 'Net::LibNIDS',
     'VERSION_FROM'	=> 'LibNIDS.pm', # finds $VERSION
