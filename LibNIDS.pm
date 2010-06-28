@@ -62,7 +62,7 @@ Net::LibNIDS - Perl extension for reassembly of TCP/IP streams using the libnids
   Net::LibNIDS::run();                      # start the collection
   sub collector {
     my $connection = shift;
-    if($conncetion->state == Net::LibNIDS::NIDS_JUST_EST()) {
+    if($connection->state == Net::LibNIDS::NIDS_JUST_EST()) {
        $connection->server->collect_on;  #start tracing data from server     
        $connection->client->collect_on;  #start tracing data from server     
     }
@@ -89,7 +89,7 @@ The workflow of using libnids is to set all parameters, then call init, set up a
 
 =head1 Net::LibNIDS::init( )
 
-Must be called once before run() is called, will return 1 if successfull, will croak with a message if it fails.
+Must be called once before run() is called, will return 1 if successful, will croak with a message if it fails.
 
 =head1 Net::LibNIDS::tcp_callback( collector_callback )
 
@@ -141,7 +141,7 @@ Returns the state as a string instead of an integer, easier for debugging.
 
 =head2 $tcp_stream->server_ip  $tcp_stream->client_ip
 
-Returns the ip of the server and client. Client is the initiator of the connection. Returned as a string.
+Returns the IP address of the server and client. Client is the initiator of the connection. Returned as a string.
 
 =head2 $tcp_stream->server_port  $tcp_stream->client_port
 
@@ -219,7 +219,7 @@ Sets the filename to read packets from (tcpdump file), if this is set, then libn
 
 =head2 pcap_filter (Net::LibNIDS::param::set_pcap_filter(pcap_filter) Net::LibNIDS::param::get_pcap_filter)
 
-The pcap filter to apply on the packets. Note however that if you have fragmented packets you cannot use the pcap filter on for example ports, since fragmented ip packets might not contain enough tcp information to determine port.
+The pcap filter to apply on the packets. Note however that if you have fragmented packets you cannot use the pcap filter on for example ports, since fragmented IP packets might not contain enough tcp information to determine port.
 
 See the note in the libnids manpage for a workaround, or check the code in example.pl.
 
