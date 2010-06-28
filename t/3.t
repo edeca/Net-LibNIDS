@@ -41,7 +41,7 @@ sub collector {
 	    like($half_stream->data, qr{If you can see this, it means that the installation of }, "Got some data");
 	} elsif($i == 2) {
 	    like($half_stream->data, qr{inistrator is using, has nothing to do with}, "With some more data");
-	    like($half_stream->data, qr{The Apache Software Foundation, which wrote the web server software}, "and the end of that");
+	    like($half_stream->data, qr{You are free to use the image below on an Apache-powered}, "and the end of that");
 	} elsif($i == 3) {
 	    like($half_stream->data, qr{GET /apache_pb.gif HTTP/1.1}, "Fetch the image");
 	    like($half_stream->data, qr{it;q=0.62, ja-jp;q=0.59, en;q=0.97, es-es;q=0.52, es;q=0.48, da-dk;q=0.45, da;q=0.41, fi-fi;q=0.38}, "Insane ordering languages :)");
@@ -50,7 +50,8 @@ sub collector {
 	    like($half_stream->data, qr{ETag: "425698-916-3714ea9f"}, "Check etag");
 	    like($half_stream->data, qr{GIF89a}, "Check beginning of GIF89");
 	} elsif($i == 5) {
-	    like($half_stream->data, qr{PSQ}, "Middle of a GIF stream - not much to check for");
+	    # Hex representation of the last few bytes in the file
+	    like($half_stream->data, qr{\x40\x02\x04\x04\x00\x3b}, "Middle of a GIF stream - not much to check for");
 	} elsif($i == 6) {
 	    fail("Shouldn't be called back 6 times with data");
 	}

@@ -12,8 +12,8 @@ check_lib_or_exit( lib => 'nids', header => 'nids.h' );
 # to build the module, the ideal fix would be to inspect the 
 # linking of libnids.so (e.g. using ldd) and only link to the following
 # libs if libnids itself is.
-check_lib_or_exit( lib => 'gthread-2.0', header => 'gthread.h' );
-check_lib_or_exit( lib => 'net', header => 'libnet.h' );
+check_lib_or_exit( lib => 'gthread-2.0' );
+check_lib_or_exit( lib => 'net' );
 
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
