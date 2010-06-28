@@ -317,7 +317,7 @@ Previous versions of Net::LibNIDS included a patch against libnids in order to o
 
 libnids man page
 libpcap man page
-API.txt documentation from libnids distrobutions
+API.txt documentation from libnids distributions
 example.pl and performance.pl 
 
 =head1 AUTHOR
