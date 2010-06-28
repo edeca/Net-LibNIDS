@@ -20,7 +20,14 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  libnids
+  libnids, libpcap, libnet, libgthread-2.0
+
+On Debian/Ubuntu, the following packages satisfy library dependencies:
+
+  libnids-dev
+  libpcap-dev
+  libnet1-dev
+  libglib2.0-dev (for gthread-2.0)
 
 COPYRIGHT AND LICENCE
 
