@@ -1,5 +1,8 @@
 Revision history for Perl extension Lib::nids.
 
+0.11  Fri Jan 18 18:30:00 2013 (EDECA)
+    - Allow user to call nids_discard from within TCP callback
+
 0.1   Mon Jun 28 15:55:00 2010 (EDECA)
 	- updated now that libnids exports last_hdr by default in v1.19, some tidy up
 	- changed the way the callback is set, fixing a bug with parsing multiple pcap files

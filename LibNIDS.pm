@@ -99,6 +99,10 @@ This registers the tcp_callback function that will be invoked with each packet. 
 
 This starts the NIDS collector, it will not finish until you call exit() or the packet file you are processing is finished
 
+=head1 Net::LibNIDS::nids_discard($tcp_stream, $num_bytes)
+
+Exports the nids_discard function, which may be called from within your TCP callback.  See the libnids documentation for further information on how to use this function.
+
 =head1 Net::LibNIDS::tcp_stream
 
 This object is called as the first argument to tcp_callback function. It has the following methods

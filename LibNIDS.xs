@@ -293,6 +293,13 @@ tcp_callback(cb);
       our_tcp_callback = SvRV(cb);
       nids_register_tcp(tcp_callback_f);
 
+void
+nids_discard(ts, numbytes);
+    SV* ts;
+    int numbytes;
+  CODE:
+    nids_discard(obj2tcpstream(ts), numbytes);
+
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::param
 
