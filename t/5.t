@@ -41,7 +41,7 @@ sub collector {
 	    like($half_stream->data, qr{GET /apache_pb.gif HTTP/1.1}, "Fetch the image");
 	    like($half_stream->data, qr{it;q=0.62, ja-jp;q=0.59, en;q=0.97, es-es;q=0.52, es;q=0.48, da-dk;q=0.45, da;q=0.41, fi-fi;q=0.38}, "Insane ordering languages :)");
 	} elsif($i == 2) {
-	    fail("Shouldn't be called back 6 times with data");
+	    fail("Shouldn't be called back 3 times with data");
 	}
 	$i++;
     }
