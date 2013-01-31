@@ -185,6 +185,13 @@ server_port(obj)
 	OUTPUT: 
 	  RETVAL
 
+void
+discard(obj, numbytes);
+    SV* obj;
+    int numbytes;
+  CODE:
+    nids_discard(obj2tcpstream(obj), numbytes);
+
 
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::tcp_stream::half
@@ -270,6 +277,7 @@ curr_ts(obj)
 	  RETVAL
 
 
+
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS		
 
 INCLUDE: const-xs.inc
@@ -293,12 +301,6 @@ tcp_callback(cb);
       our_tcp_callback = SvRV(cb);
       nids_register_tcp(tcp_callback_f);
 
-void
-nids_discard(ts, numbytes);
-    SV* ts;
-    int numbytes;
-  CODE:
-    nids_discard(obj2tcpstream(ts), numbytes);
 
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::param

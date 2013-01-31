@@ -32,7 +32,7 @@ sub collector {
 	    like($half_stream->data, qr{GET / HTTP/1.1}, "Inital GET");
 		# Default libnids behaviour is to remove all new data from the buffer.  Instead
 		# we'll just remove the GET.
-		Net::LibNIDS::nids_discard($stream, 3);
+		$stream->discard(3);
 	} elsif($i == 1) {
         # Data buffer should now start like above minus GET.
 	    like($half_stream->data, qr{^ / HTTP/1.1}, "Initial request minus GET");
