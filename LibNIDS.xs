@@ -301,6 +301,14 @@ tcp_callback(cb);
       our_tcp_callback = SvRV(cb);
       nids_register_tcp(tcp_callback_f);
 
+void
+checksum_off()
+	CODE:
+	  struct nids_chksum_ctl nochksumchk;
+	  nochksumchk.netaddr = 0;
+	  nochksumchk.mask = 0;
+	  nochksumchk.action = NIDS_DONT_CHKSUM;
+	  nids_register_chksum_ctl(&nochksumchk, 1);
 
 
 MODULE = Net::LibNIDS		PACKAGE = Net::LibNIDS::param
