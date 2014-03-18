@@ -9,7 +9,10 @@ host would have seen the stream.
 
 Note that on AMD64 architecture machines the libnids library must not be compiled with -O2 or
 above - compile with -O1 at maximum.  Tests will fail if libnids is compiled with -O2 (no
-callbacks are raised by libnids).  See http://tinyurl.com/nh9dych.
+callbacks are raised by libnids).  See:
+
+ - https://bugs.launchpad.net/ubuntu/+source/gcc-defaults/+bug/1072650
+ - http://tinyurl.com/nh9dych
 
 INSTALLATION
 
