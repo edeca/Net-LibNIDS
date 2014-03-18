@@ -7,6 +7,10 @@ system (whichis what NIDS stands for). This module uses libnids to allow you to 
 the reassembled tcp stream without any duplicates or incorrect order. That is, like a normal
 host would have seen the stream.
 
+Note that on AMD64 architecture machines the libnids library must not be compiled with -O2 or
+above - compile with -O1 at maximum.  Tests will fail if libnids is compiled with -O2 (no
+callbacks are raised by libnids).  See http://tinyurl.com/nh9dych.
+
 INSTALLATION
 
 To install this module type the following:
