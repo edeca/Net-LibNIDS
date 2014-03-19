@@ -1,6 +1,6 @@
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         Net-LibNIDS
-version:      0.1
+version:      0.12
 version_from: LibNIDS.pm
 installdirs:  site
 requires:

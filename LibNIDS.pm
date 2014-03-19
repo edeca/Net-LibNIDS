@@ -7,7 +7,7 @@ use Carp;
 
 our @ISA = qw();
 
-our $VERSION = '0.1';
+our $VERSION = '0.12';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -98,6 +98,10 @@ This registers the tcp_callback function that will be invoked with each packet. 
 =head1 Net::LibNIDS::run( )
 
 This starts the NIDS collector, it will not finish until you call exit() or the packet file you are processing is finished
+
+=head1 Net::LibNIDS::checksum_off( )
+
+Disables libnids internal checksumming for all packets by setting NIDS_DONT_CHKSUM.
 
 =head1 Net::LibNIDS::nids_discard($tcp_stream, $num_bytes)
 
