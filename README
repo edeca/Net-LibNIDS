@@ -1,17 +1,22 @@
 Net::LibNIDS version 0.1
 ========================
 
-This module embeds the libnids C library written by Rafal Wojtczuk <nergal@avet.com.pl?.
-libnids is designed to do all lowlevel network code required by a network intrusion detection
-system (whichis what NIDS stands for). This module uses libnids to allow you to read
-the reassembled tcp stream without any duplicates or incorrect order. That is, like a normal
-host would have seen the stream.
+This module embeds the libnids C library written by Rafal Wojtczuk 
+<nergal@avet.com.pl>. libnids is designed to do all lowlevel network code 
+required by a network intrusion detection system (whichis what NIDS stands 
+for). This module uses libnids to allow you to read the reassembled tcp stream 
+without any duplicates or incorrect order. That is, like a normal host would
+have seen the stream.
 
-Note that on AMD64 architecture machines the libnids library must not be compiled with -O2 or
-above - compile with -O1 at maximum.  Tests will fail if libnids is compiled with -O2 (no
-callbacks are raised by libnids).  See:
+Note that on AMD64 architecture machines the libnids library must not be 
+compiled with strict aliasing enabled.  For GCC, this means passing 
+-fno-strict-aliasing if you use -O2 or above.  Alternatively compile with -O1.
+
+Tests will fail if libnids is compiled with -O2 but this is not a bug with 
+Net::LibNIDS, as no callbacks are raised by libnids.  See:
 
  - https://bugs.launchpad.net/ubuntu/+source/gcc-defaults/+bug/1072650
+ - https://bugs.gentoo.org/show_bug.cgi?id=505026
  - http://tinyurl.com/nh9dych
 
 INSTALLATION
