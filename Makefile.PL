@@ -23,16 +23,15 @@ check_lib_or_exit( lib => 'net' );
 #       have check_lib to accomplish this
 WriteMakefile(
     'NAME'		=> 'Net::LibNIDS',
+    'ABSTRACT'		=> 'Use the libnids library from Perl',
     'VERSION_FROM'	=> 'LibNIDS.pm', # finds $VERSION
     'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
-#    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-#      (ABSTRACT_FROM => 'LibNIDS.pm', # retrieve abstract from module
-#       AUTHOR     => 'Arthur Bergman <abergman@fotango.com>') : ()),
+    'MIN_PERL_VERSION'  => '5.008',
+    'AUTHOR'     => [ 'Arthur Bergman <abergman@fotango.com>', 'David Cannings <david@edeca.net>' ],
     'LIBS'		=> ['-lnids -lpcap -lgthread-2.0 -lnet'],
     'DEFINE'		=> '', # e.g., '-DHAVE_SOMETHING'
     'INC'		=> '-I.', # e.g., '-I. -I/usr/include/other'
-	# Un-comment this if you add C files to link with later:
-   # 'OBJECT'		=> '$(O_FILES)', # link all the C files too
+    'LICENSE'		=> 'perl',
 );
 if  (eval {require ExtUtils::Constant; 1}) {
   # If you edit these definitions to change the constants used by this module,
