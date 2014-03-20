@@ -1,5 +1,8 @@
 Revision history for Perl extension Lib::nids.
 
+0.13  Thu Mar 20 14:30:00 2014 (EDECA)
+	- Update Meta.yml to be compliant with spec v1.4
+
 0.12  Wed Mar 19 11:00:00 2014 (EDECA)
 	- Add checksum_off(), fixes cpan #82871 (patch by github/midenok)
 
