@@ -1,4 +1,4 @@
-Net::LibNIDS version 0.13
+Net::LibNIDS version 0.14
 =========================
 
 This module embeds the libnids C library written by Rafal Wojtczuk 
